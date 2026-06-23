@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:76px}
+    body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:#1e293b;background:#ffffff;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    @keyframes floatGlow{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+  </style>
+</helmet>
+
+<div style="background:#ffffff;overflow-x:hidden">
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)">
+    <nav style="max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:16px;letter-spacing:-0.01em">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;background:#3b82f6;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600">HG</span>
+        Harshavardhan Gowda
+      </a>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;gap:4px" data-nav-desktop>
+          <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+            <a href="{{ link.href }}" style="padding:8px 14px;font-size:14px;font-weight:500;color:#cbd5e1;border-radius:7px" style-hover="color:#ffffff;background:rgba(255,255,255,0.06)">{{ link.label }}</a>
+          </sc-for>
+        </div>
+        <a href="{{ resumeUrl }}" download style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;font-size:14px;font-weight:600;color:#0a1628;background:#3b82f6;border-radius:8px" style-hover="background:#60a5fa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Resume
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" style="position:relative;background:#0a1628;color:#fff;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(59,130,246,0.18) 1px, transparent 0);background-size:34px 34px;mask-image:radial-gradient(ellipse 80% 70% at 70% 30%, #000 30%, transparent 75%)"></div>
+    <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;background:radial-gradient(circle, rgba(59,130,246,0.28), transparent 65%);filter:blur(20px);animation:floatGlow 14s ease-in-out infinite"></div>
+    <div style="position:relative;max-width:1160px;margin:0 auto;padding:104px 32px 96px">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border:1px solid rgba(59,130,246,0.4);border-radius:99px;background:rgba(59,130,246,0.1);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;color:#93c5fd;margin-bottom:26px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,0.25)"></span>
+        OPEN TO NETWORK &amp; CLOUD ROLES
+      </div>
+      <h1 style="font-size:62px;line-height:1.04;font-weight:700;letter-spacing:-0.03em;max-width:880px;margin-bottom:24px">Network Engineer building resilient<span style="color:#60a5fa"> enterprise &amp; cloud</span> infrastructure.</h1>
+      <p style="font-size:19px;line-height:1.6;color:#94a3b8;max-width:660px;margin-bottom:38px">3+ years operating SD-WAN, L2/L3 routing &amp; switching, and 24×7 NOC support across 2,000+ global sites — with hands-on AWS and Linux administration for highly available hybrid connectivity.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:64px">
+        <a href="#experience" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#0a1628;background:#3b82f6;border-radius:10px" style-hover="background:#60a5fa">View Experience</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#e2e8f0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:10px" style-hover="background:rgba(255,255,255,0.13)">Get in Touch</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;max-width:760px">
+        <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
+          <div style="padding:24px 22px;background:#0c1a30">
+            <div style="font-size:32px;font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:4px">{{ stat.value }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7c8aa0;letter-spacing:0.02em">{{ stat.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="background:#ffffff;padding:96px 32px">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">01 / ABOUT</div>
+        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Reliability is the product I ship.</h2>
+      </div>
+      <div>
+        <p style="font-size:18px;line-height:1.7;color:#475569;margin-bottom:22px">Results-driven Network Engineer with enterprise experience in SD-WAN operations, L2/L3 incident resolution, and global network support. Strong working knowledge of Cisco routing &amp; switching and routing protocols including BGP, OSPF, and EIGRP.</p>
+        <p style="font-size:18px;line-height:1.7;color:#475569;margin-bottom:34px">I diagnose complex connectivity escalations, perform packet-level analysis, and drive strict SLA compliance in 24×7 NOC environments — backed by hands-on Linux and AWS cloud administration for dependable hybrid connectivity.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <sc-for list="{{ highlights }}" as="hl" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:16px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:11px">
+              <span style="flex:none;margin-top:2px;color:#3b82f6">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span style="font-size:14.5px;font-weight:500;line-height:1.45;color:#334155">{{ hl }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" style="background:#f8fafc;padding:96px 32px;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="margin-bottom:52px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">02 / TECHNICAL SKILLS</div>
+        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a;max-width:560px">The stack I operate, secure and scale.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <sc-for list="{{ skillGroups }}" as="group" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:18px" style-hover="border-color:#bfdbfe;box-shadow:0 8px 24px rgba(15,23,42,0.06)">
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#eff6ff;color:#2563eb" innerHTML="{{ group.icon }}"></span>
+              <h3 style="font-size:16px;font-weight:600;color:#0f172a;letter-spacing:-0.01em">{{ group.title }}</h3>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:7px">
+              <sc-for list="{{ group.skills }}" as="skill" hint-placeholder-count="5">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;color:#475569;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:7px;padding:5px 10px">{{ skill }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" style="background:#ffffff;padding:96px 32px">
+    <div style="max-width:1160px;margin:0 auto">
+      <div style="margin-bottom:52px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">03 / EXPERIENCE</div>
+        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Where I've kept networks up.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ experiences }}" as="job" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#64748b;margin-bottom:10px">{{ job.dates }}</div>
+              <div style="font-size:19px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;margin-bottom:4px">{{ job.company }}</div>
+              <div style="font-size:14.5px;font-weight:500;color:#3b82f6">{{ job.role }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px;padding-top:2px">
+              <sc-for list="{{ job.bullets }}" as="b" hint-placeholder-count="4">
+                <div style="display:flex;gap:13px;align-items:flex-start">
+                  <span style="flex:none;margin-top:9px;width:6px;height:6px;border-radius:50%;background:#3b82f6"></span>
+                  <p style="font-size:15.5px;line-height:1.6;color:#475569">{{ b }}</p>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+        <div style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#64748b;margin-bottom:10px">2018 — 2022</div>
+            <div style="font-size:19px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;margin-bottom:4px">B.E. Information Science</div>
+            <div style="font-size:14.5px;font-weight:500;color:#3b82f6">Education</div>
+          </div>
+          <div style="display:flex;align-items:center;padding-top:2px">
+            <p style="font-size:15.5px;line-height:1.6;color:#475569">Bachelor of Engineering, Information Science — Bapuji Institute of Engineering and Technology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" style="background:#0a1628;color:#fff;padding:96px 32px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(59,130,246,0.14) 1px, transparent 0);background-size:34px 34px;mask-image:radial-gradient(ellipse 70% 80% at 20% 50%, #000 20%, transparent 70%)"></div>
+    <div style="position:relative;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#60a5fa;margin-bottom:14px">04 / CONTACT</div>
+        <h2 style="font-size:40px;line-height:1.1;font-weight:700;letter-spacing:-0.025em;margin-bottom:20px">Let's build something dependable.</h2>
+        <p style="font-size:18px;line-height:1.65;color:#94a3b8;margin-bottom:38px;max-width:420px">Open to Network Engineer and Cloud roles. Reach out directly or send a message — I'll get back to you quickly.</p>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
+            <a href="{{ c.href }}" target="_blank" style="display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,0.08)" style-hover="opacity:0.8">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:rgba(59,130,246,0.14);color:#60a5fa" innerHTML="{{ c.icon }}"></span>
+              <div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#64748b;margin-bottom:2px">{{ c.label }}</div>
+                <div style="font-size:15px;font-weight:500;color:#e2e8f0">{{ c.value }}</div>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 12px;gap:16px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(52,211,153,0.16);color:#34d399">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <h3 style="font-size:21px;font-weight:700">Your email is ready</h3>
+            <p style="font-size:15px;line-height:1.6;color:#94a3b8;max-width:300px">Your mail app should have opened with the message drafted. If not, email me directly at harshavardhangowda9148@gmail.com.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:18px">
+            <div>
+              <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#94a3b8;margin-bottom:8px">NAME</label>
+              <input value="{{ form.name }}" onInput="{{ onName }}" type="text" placeholder="Jane Doe" style="width:100%;padding:13px 15px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:#fff;background:rgba(10,22,40,0.6);border:1px solid rgba(255,255,255,0.14);border-radius:10px;outline:none" style-focus="border-color:#3b82f6" />
+            </div>
+            <div>
+              <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#94a3b8;margin-bottom:8px">EMAIL</label>
+              <input value="{{ form.email }}" onInput="{{ onEmail }}" type="email" placeholder="jane@company.com" style="width:100%;padding:13px 15px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:#fff;background:rgba(10,22,40,0.6);border:1px solid rgba(255,255,255,0.14);border-radius:10px;outline:none" style-focus="border-color:#3b82f6" />
+            </div>
+            <div>
+              <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#94a3b8;margin-bottom:8px">MESSAGE</label>
+              <textarea value="{{ form.message }}" onInput="{{ onMessage }}" rows="4" placeholder="Tell me about the role or project..." style="width:100%;padding:13px 15px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:#fff;background:rgba(10,22,40,0.6);border:1px solid rgba(255,255,255,0.14);border-radius:10px;outline:none;resize:vertical" style-focus="border-color:#3b82f6"></textarea>
+            </div>
+            <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:#0a1628;background:#3b82f6;border:none;border-radius:10px;cursor:pointer" style-hover="background:#60a5fa">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:#070f1d;color:#64748b;padding:30px 32px;border-top:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+      <div style="font-size:14px">© 2026 Harshavardhan Gowda D B · Bengaluru, India</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em">Network Engineer · SD-WAN · Cloud</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { form: { name: '', email: '', message: '' }, sent: false };
+
+  set(field, val) {
+    this.setState(s => ({ form: { ...s.form, [field]: val } }));
+  }
+
+  renderVals() {
+    const f = this.state.form;
+    const icon = {
+      route: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>',
+      globe: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+      activity: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+      shield: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+      cloud: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.5-1.5A4 4 0 0 0 6 19z"/></svg>',
+      ticket: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M9 5v14"/></svg>',
+    };
+
+    return {
+      resumeUrl: 'uploads/Harshavardhan_Gowda_Resume.pdf',
+      navLinks: [
+        { label: 'About', href: '#about' },
+        { label: 'Skills', href: '#skills' },
+        { label: 'Experience', href: '#experience' },
+        { label: 'Contact', href: '#contact' },
+      ],
+      stats: [
+        { value: '3+', label: 'YRS EXPERIENCE' },
+        { value: '2,000+', label: 'SITES SUPPORTED' },
+        { value: '99.9%', label: 'NETWORK UPTIME' },
+        { value: '24×7', label: 'NOC OPERATIONS' },
+      ],
+      highlights: [
+        'SD-WAN cutovers with zero unplanned downtime',
+        'Packet-level analysis & root-cause isolation',
+        'BGP / OSPF / EIGRP routing operations',
+        'AWS + Linux hybrid administration',
+      ],
+      skillGroups: [
+        { title: 'Routing & Switching', icon: icon.route, skills: ['Cisco Catalyst & Nexus', 'Cisco Meraki', 'BGP', 'OSPF', 'EIGRP', 'TCP/IP', 'LAN/WAN', 'DHCP', 'DNS', 'VLANs'] },
+        { title: 'SD-WAN & Connectivity', icon: icon.globe, skills: ['Aryaka SD-WAN', 'IPsec/SSL VPN', 'Cisco AnyConnect', 'Zscaler ZPA'] },
+        { title: 'Monitoring & Analysis', icon: icon.activity, skills: ['EagleEye', 'SolarWinds', 'NetFlow', 'Packet Capture', 'Traceroute', 'ARP Analysis', 'Wireshark'] },
+        { title: 'Security & Access', icon: icon.shield, skills: ['Active Directory', 'LDAP', 'IAM', 'MFA', 'Citrix VDI'] },
+        { title: 'Cloud & Systems', icon: icon.cloud, skills: ['AWS (IAM, EC2, EBS, AMI)', 'Citrix Cloud', 'Linux (RHEL/CentOS)', 'Windows Server 2022'] },
+        { title: 'ITSM & Ticketing', icon: icon.ticket, skills: ['ServiceNow', 'Salesforce', 'JIRA'] },
+      ],
+      experiences: [
+        {
+          company: 'Aryaka Networks',
+          role: 'Network Engineer',
+          dates: 'Sep 2024 — Present',
+          bullets: [
+            'Led L2/L3 troubleshooting and SD-WAN optimization, including Link Management Module (LMM) migrations across 2,000+ remote sites — reducing edge-to-core latency with zero unplanned customer downtime during cutovers.',
+            'Managed core network architecture and Linux-based ANAP edge devices via MobaXterm, running CLI configuration audits and preserving IPsec/SSL-VPN tunnel health to maintain 99.9% global network uptime.',
+            'Performed packet-level analysis using EagleEye and Linux utilities (traceroute, ARP) to isolate packet loss, latency spikes, and circuit degradation, eliminating recurring infrastructure bottlenecks.',
+            'Collaborated with global ISPs and internal NOC teams to resolve last-mile access escalations, tracking the full incident lifecycle in Salesforce and JIRA to ensure strict SLA adherence.',
+          ],
+        },
+        {
+          company: 'DXC Technology',
+          role: 'Network & Systems Support Engineer',
+          dates: 'Apr 2023 — Aug 2024',
+          bullets: [
+            'Served as Tier-2 escalation point for global MetLife users across the US, Europe, and India; diagnosed Zscaler ZPA, Cisco AnyConnect VPN, and Citrix VDI failures, cutting recurring connectivity ticket volume by ~20%.',
+            'Administered Windows and Linux (RHEL/CentOS) servers using CLI utilities (ssh, systemctl, ping) to verify reachability, restart stalled authentication daemons, and govern LDAP user access.',
+            'Conducted deep-dive authentication log forensics (grep, tail, journalctl) to isolate root causes of SSO handshake failures and accelerate first-contact triage.',
+            'Supported global IAM workflows — cross-domain permissions, MFA rollouts, and secure endpoint administration for remote personnel.',
+          ],
+        },
+      ],
+      contacts: [
+        { label: 'EMAIL', value: 'harshavardhangowda9148@gmail.com', href: 'mailto:harshavardhangowda9148@gmail.com', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>' },
+        { label: 'PHONE', value: '+91 91489 26984', href: 'tel:+919148926984', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' },
+        { label: 'LINKEDIN', value: 'in/harshavardhan-gowda', href: 'https://www.linkedin.com/in/harshavardhan-gowda/', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 17.34V10.4H6.04v6.94zM7.19 9.42a1.34 1.34 0 1 0 0-2.67 1.34 1.34 0 0 0 0 2.67zm10.15 7.92v-3.8c0-2.03-1.08-2.98-2.53-2.98a2.18 2.18 0 0 0-1.98 1.09v-.94h-2.3v6.63h2.3v-3.67c0-.97.18-1.9 1.38-1.9s1.2 1.1 1.2 1.96v3.61z"/></svg>' },
+        { label: 'LOCATION', value: 'Bengaluru, Karnataka, India', href: '#top', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>' },
+      ],
+      form: f,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onName: (e) => this.set('name', e.target.value),
+      onEmail: (e) => this.set('email', e.target.value),
+      onMessage: (e) => this.set('message', e.target.value),
+      onSubmit: (e) => {
+        e.preventDefault();
+        const subject = encodeURIComponent('Portfolio inquiry from ' + (f.name || 'a visitor'));
+        const body = encodeURIComponent(f.message + '\n\n— ' + f.name + (f.email ? ' (' + f.email + ')' : ''));
+        window.location.href = 'mailto:harshavardhangowda9148@gmail.com?subject=' + subject + '&body=' + body;
+        this.setState({ sent: true });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
