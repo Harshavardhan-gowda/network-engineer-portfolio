@@ -17,6 +17,25 @@
     body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:#1e293b;background:#ffffff;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
     @keyframes floatGlow{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+    @media (max-width:860px){
+      html{scroll-padding-top:64px}
+      [data-nav-desktop]{display:none !important}
+      [data-r="hero-pad"]{padding:72px 22px 64px !important}
+      [data-r="hero-h1"]{font-size:38px !important}
+      [data-r="hero-sub"]{font-size:17px !important}
+      [data-r="stats"]{grid-template-columns:1fr 1fr !important}
+      [data-r="sec-pad"]{padding:64px 22px !important}
+      [data-r="two-col"]{grid-template-columns:1fr !important;gap:32px !important}
+      [data-r="skills-grid"]{grid-template-columns:1fr !important}
+      [data-r="hl-grid"]{grid-template-columns:1fr !important}
+      [data-r="exp-row"]{grid-template-columns:1fr !important;gap:16px !important;padding:28px 0 !important}
+      [data-r="sec-h2"]{font-size:30px !important}
+      [data-r="brand"]{font-size:14px !important}
+    }
+    @media (max-width:420px){
+      [data-r="hero-h1"]{font-size:32px !important}
+      [data-r="stats"]{grid-template-columns:1fr 1fr !important}
+    }
   </style>
 </helmet>
 
@@ -25,7 +44,7 @@
   <!-- ===== NAV ===== -->
   <header style="position:sticky;top:0;z-index:50;background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)">
     <nav style="max-width:1160px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between">
-      <a href="#top" style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:16px;letter-spacing:-0.01em">
+      <a href="#top" data-r="brand" style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:16px;letter-spacing:-0.01em">
         <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;background:#3b82f6;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600">HG</span>
         Harshavardhan Gowda
       </a>
@@ -47,18 +66,18 @@
   <section id="top" style="position:relative;background:#0a1628;color:#fff;overflow:hidden">
     <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(59,130,246,0.18) 1px, transparent 0);background-size:34px 34px;mask-image:radial-gradient(ellipse 80% 70% at 70% 30%, #000 30%, transparent 75%)"></div>
     <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;background:radial-gradient(circle, rgba(59,130,246,0.28), transparent 65%);filter:blur(20px);animation:floatGlow 14s ease-in-out infinite"></div>
-    <div style="position:relative;max-width:1160px;margin:0 auto;padding:104px 32px 96px">
+    <div data-r="hero-pad" style="position:relative;max-width:1160px;margin:0 auto;padding:104px 32px 96px">
       <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border:1px solid rgba(59,130,246,0.4);border-radius:99px;background:rgba(59,130,246,0.1);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;color:#93c5fd;margin-bottom:26px">
         <span style="width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,0.25)"></span>
         OPEN TO NETWORK &amp; CLOUD ROLES
       </div>
-      <h1 style="font-size:62px;line-height:1.04;font-weight:700;letter-spacing:-0.03em;max-width:880px;margin-bottom:24px">Network Engineer building resilient<span style="color:#60a5fa"> enterprise &amp; cloud</span> infrastructure.</h1>
-      <p style="font-size:19px;line-height:1.6;color:#94a3b8;max-width:660px;margin-bottom:38px">3+ years operating SD-WAN, L2/L3 routing &amp; switching, and 24×7 NOC support across 2,000+ global sites — with hands-on AWS and Linux administration for highly available hybrid connectivity.</p>
+      <h1 data-r="hero-h1" style="font-size:62px;line-height:1.04;font-weight:700;letter-spacing:-0.03em;max-width:880px;margin-bottom:24px">Network Engineer building resilient<span style="color:#60a5fa"> enterprise &amp; cloud</span> infrastructure.</h1>
+      <p data-r="hero-sub" style="font-size:19px;line-height:1.6;color:#94a3b8;max-width:660px;margin-bottom:38px">3+ years operating SD-WAN, L2/L3 routing &amp; switching, and 24×7 NOC support across 2,000+ global sites — with hands-on AWS and Linux administration for highly available hybrid connectivity.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:64px">
         <a href="#experience" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#0a1628;background:#3b82f6;border-radius:10px" style-hover="background:#60a5fa">View Experience</a>
         <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;font-size:15px;font-weight:600;color:#e2e8f0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:10px" style-hover="background:rgba(255,255,255,0.13)">Get in Touch</a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;max-width:760px">
+      <div data-r="stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;max-width:760px">
         <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
           <div style="padding:24px 22px;background:#0c1a30">
             <div style="font-size:32px;font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:4px">{{ stat.value }}</div>
@@ -70,16 +89,16 @@
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section id="about" style="background:#ffffff;padding:96px 32px">
-    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start">
+  <section id="about" data-r="sec-pad" style="background:#ffffff;padding:96px 32px">
+    <div data-r="two-col" style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start">
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">01 / ABOUT</div>
-        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Reliability is the product I ship.</h2>
+        <h2 data-r="sec-h2" style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Reliability is the product I ship.</h2>
       </div>
       <div>
         <p style="font-size:18px;line-height:1.7;color:#475569;margin-bottom:22px">Results-driven Network Engineer with enterprise experience in SD-WAN operations, L2/L3 incident resolution, and global network support. Strong working knowledge of Cisco routing &amp; switching and routing protocols including BGP, OSPF, and EIGRP.</p>
         <p style="font-size:18px;line-height:1.7;color:#475569;margin-bottom:34px">I diagnose complex connectivity escalations, perform packet-level analysis, and drive strict SLA compliance in 24×7 NOC environments — backed by hands-on Linux and AWS cloud administration for dependable hybrid connectivity.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div data-r="hl-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
           <sc-for list="{{ highlights }}" as="hl" hint-placeholder-count="4">
             <div style="display:flex;gap:12px;align-items:flex-start;padding:16px 18px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:11px">
               <span style="flex:none;margin-top:2px;color:#3b82f6">
@@ -94,13 +113,13 @@
   </section>
 
   <!-- ===== SKILLS ===== -->
-  <section id="skills" style="background:#f8fafc;padding:96px 32px;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <section id="skills" data-r="sec-pad" style="background:#f8fafc;padding:96px 32px;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
     <div style="max-width:1160px;margin:0 auto">
       <div style="margin-bottom:52px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">02 / TECHNICAL SKILLS</div>
-        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a;max-width:560px">The stack I operate, secure and scale.</h2>
+        <h2 data-r="sec-h2" style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a;max-width:560px">The stack I operate, secure and scale.</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div data-r="skills-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
         <sc-for list="{{ skillGroups }}" as="group" hint-placeholder-count="6">
           <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:18px" style-hover="border-color:#bfdbfe;box-shadow:0 8px 24px rgba(15,23,42,0.06)">
             <div style="display:flex;align-items:center;gap:12px">
@@ -119,15 +138,15 @@
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section id="experience" style="background:#ffffff;padding:96px 32px">
+  <section id="experience" data-r="sec-pad" style="background:#ffffff;padding:96px 32px">
     <div style="max-width:1160px;margin:0 auto">
       <div style="margin-bottom:52px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#3b82f6;margin-bottom:14px">03 / EXPERIENCE</div>
-        <h2 style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Where I've kept networks up.</h2>
+        <h2 data-r="sec-h2" style="font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;color:#0f172a">Where I've kept networks up.</h2>
       </div>
       <div style="display:flex;flex-direction:column;gap:0">
         <sc-for list="{{ experiences }}" as="job" hint-placeholder-count="2">
-          <div style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
+          <div data-r="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
             <div>
               <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#64748b;margin-bottom:10px">{{ job.dates }}</div>
               <div style="font-size:19px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;margin-bottom:4px">{{ job.company }}</div>
@@ -143,7 +162,7 @@
             </div>
           </div>
         </sc-for>
-        <div style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
+        <div data-r="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:40px;padding:36px 0;border-top:1px solid #e2e8f0">
           <div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#64748b;margin-bottom:10px">2018 — 2022</div>
             <div style="font-size:19px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;margin-bottom:4px">B.E. Information Science</div>
@@ -158,12 +177,12 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" style="background:#0a1628;color:#fff;padding:96px 32px;position:relative;overflow:hidden">
+  <section id="contact" data-r="sec-pad" style="background:#0a1628;color:#fff;padding:96px 32px;position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(59,130,246,0.14) 1px, transparent 0);background-size:34px 34px;mask-image:radial-gradient(ellipse 70% 80% at 20% 50%, #000 20%, transparent 70%)"></div>
-    <div style="position:relative;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+    <div data-r="two-col" style="position:relative;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
       <div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.08em;color:#60a5fa;margin-bottom:14px">04 / CONTACT</div>
-        <h2 style="font-size:40px;line-height:1.1;font-weight:700;letter-spacing:-0.025em;margin-bottom:20px">Let's build something dependable.</h2>
+        <h2 data-r="sec-h2" style="font-size:40px;line-height:1.1;font-weight:700;letter-spacing:-0.025em;margin-bottom:20px">Let's build something dependable.</h2>
         <p style="font-size:18px;line-height:1.65;color:#94a3b8;margin-bottom:38px;max-width:420px">Open to Network Engineer and Cloud roles. Reach out directly or send a message — I'll get back to you quickly.</p>
         <div style="display:flex;flex-direction:column;gap:4px">
           <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
